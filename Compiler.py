@@ -4,11 +4,11 @@ from tkinter import filedialog
 
 def merge(paths):
     df   = pd.concat((pd.read_csv(p) for p in paths), ignore_index=True)
-    base = os.path.splitext(os.path.basename(paths[0]))[0]       # full name of first file
+    base = os.path.splitext(os.path.basename(paths[0]))[0] 
     desk = os.path.join(os.path.expanduser("~"), "Desktop")
-    out_dir  = os.path.join(desk, f"Merged_{base}")              # folder
+    out_dir  = os.path.join(desk, f"Merged_{base}") 
     os.makedirs(out_dir, exist_ok=True)
-    out_file = os.path.join(out_dir, f"Merged_{base}.csv")       # file
+    out_file = os.path.join(out_dir, f"Merged_{base}.csv")  
     df.to_csv(out_file, index=False)
     print("✓ saved", out_file)
 
